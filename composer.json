@@ -1,0 +1,42 @@
+{
+    "name": "tomatophp/tomato-backup",
+    "type": "library",
+    "description": "Backup module for TomatoPHP build with spatie laravel-backup",
+    "keywords": [
+        "php",
+        "laravel",
+        "template"
+    ],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "TomatoPHP\\TomatoBackup\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "TomatoPHP\\TomatoBackup\\TomatoBackupServiceProvider"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "Fady Mondy",
+            "email": "info@3x1.io"
+        }
+    ],
+    "require": {
+        "php": "^8.0.2",
+        "queents/console-helpers": "^1.0",
+        "spatie/laravel-backup": "^8.1",
+        "calebporzio/sushi": "^2.4",
+        "queents/tomato-admin": "^1.0",
+        "queents/tomato-roles": "^1.0"
+    }
+}
