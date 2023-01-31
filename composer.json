@@ -1,11 +1,15 @@
 {
     "name": "tomatophp/tomato-backup",
     "type": "library",
-    "description": "Backup module for TomatoPHP build with spatie laravel-backup",
+    "description": "Backup plugin for TomatoPHP build with spatie laravel-backup",
     "keywords": [
         "php",
         "laravel",
-        "template"
+        "backup",
+        "laravel-backup",
+        "spatie",
+        "tomatophp",
+        "plugin"
     ],
     "license": "MIT",
     "autoload": {
