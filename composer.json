@@ -37,10 +37,10 @@
     ],
     "require": {
         "php": "^8.0.2",
-        "queents/console-helpers": "^1.0",
+        "tomatophp/console-helpers": "^1.0",
+        "tomatophp/tomato-admin": "^1.0",
+        "tomatophp/tomato-roles": "^1.0",
         "spatie/laravel-backup": "^8.1",
-        "calebporzio/sushi": "^2.4",
-        "queents/tomato-admin": "^1.0",
-        "queents/tomato-roles": "^1.0"
+        "calebporzio/sushi": "^2.4"
     }
 }
