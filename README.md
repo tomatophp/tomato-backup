@@ -10,12 +10,6 @@ Backup plugin for TomatoPHP build with spatie laravel-backup
 composer require tomatophp/tomato-backup
 ```
 
-after that use this command to install
-
-```bash
-php artisan tomato-backup:install
-```
-
 ## Support
 
 you can join our discord server to get support [TomatoPHP](https://discord.gg/Xqmt35Uh)
