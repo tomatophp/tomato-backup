@@ -4,7 +4,6 @@ namespace TomatoPHP\TomatoBackup;
 
 use Illuminate\Support\ServiceProvider;
 use TomatoPHP\TomatoBackup\Menus\BackupMenu;
-use TomatoPHP\TomatoBackup\Menus\LogsMenu;
 use TomatoPHP\TomatoPHP\Services\Menu\TomatoMenuRegister;
 use TomatoPHP\TomatoRoles\Services\Permission;
 use TomatoPHP\TomatoRoles\Services\TomatoRoles;

@@ -26,7 +26,7 @@ class BackupController extends Controller
         return Tomato::index(
             request: $request,
             view: 'tomato-backup::backup.index',
-            table: \Queents\TomatoBackup\Tables\BackupTable::class,
+            table: \TomatoPHP\TomatoBackup\Tables\BackupTable::class,
         );
     }
 
