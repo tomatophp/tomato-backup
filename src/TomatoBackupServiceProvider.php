@@ -24,7 +24,7 @@ class TomatoBackupServiceProvider extends ServiceProvider
         //Publish Config
         $this->publishes([
            __DIR__.'/../config/tomato-backup.php' => config_path('tomato-backup.php'),
-        ], 'config');
+        ], 'tomato-backup-config');
 
         //Register Migrations
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
@@ -32,7 +32,7 @@ class TomatoBackupServiceProvider extends ServiceProvider
         //Publish Migrations
         $this->publishes([
            __DIR__.'/../database/migrations' => database_path('migrations'),
-        ], 'migrations');
+        ], 'tomato-backup-migrations');
 
         //Register views
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'tomato-backup');
@@ -40,15 +40,15 @@ class TomatoBackupServiceProvider extends ServiceProvider
         //Publish Views
         $this->publishes([
            __DIR__.'/../resources/views' => resource_path('views/vendor/tomato-backup'),
-        ], 'views');
+        ], 'tomato-backup-views');
 
         //Register Langs
         $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'tomato-backup');
 
         //Publish Lang
         $this->publishes([
-           __DIR__.'/../resources/lang' => resource_path('lang/vendor/tomato-backup'),
-        ], 'lang');
+           __DIR__.'/../resources/lang' => app_path('lang/vendor/tomato-backup'),
+        ], 'tomato-backup-lang');
 
         //Register Routes
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');

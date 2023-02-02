@@ -37,7 +37,6 @@ class TomatoBackupInstall extends Command
     public function handle()
     {
         $this->info('🍅 Publish Vendor Assets');
-        $this->call('vendor:publish', ['--provider' => 'TomatoPHP\TomatoBackup\TomatoBackupServiceProvider']);
         $this->artisanCommand(["migrate"]);
         $this->artisanCommand(["optimize:clear"]);
         $this->info('🍅 Tomato Backup installed successfully.');
