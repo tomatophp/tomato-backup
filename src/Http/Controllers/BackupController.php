@@ -11,7 +11,7 @@ use Illuminate\View\View;
 use ProtoneMedia\Splade\Facades\Toast;
 use TomatoPHP\TomatoBackup\Jobs\CreateBackupJob;
 use TomatoPHP\TomatoBackup\Models\BackupDestination;
-use TomatoPHP\TomatoPHP\Services\Tomato;
+use TomatoPHP\TomatoAdmin\Facade\Tomato;
 use Spatie\Backup\BackupDestination\Backup;
 use Spatie\Backup\BackupDestination\BackupDestination as SpatieBackupDestination;
 
@@ -25,6 +25,7 @@ class BackupController extends Controller
     {
         return Tomato::index(
             request: $request,
+            model: BackupDestination::class,
             view: 'tomato-backup::backup.index',
             table: \TomatoPHP\TomatoBackup\Tables\BackupTable::class,
         );

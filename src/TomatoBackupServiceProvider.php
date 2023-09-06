@@ -3,8 +3,9 @@
 namespace TomatoPHP\TomatoBackup;
 
 use Illuminate\Support\ServiceProvider;
+use TomatoPHP\TomatoAdmin\Facade\TomatoMenu;
 use TomatoPHP\TomatoBackup\Menus\BackupMenu;
-use TomatoPHP\TomatoPHP\Services\Menu\TomatoMenuRegister;
+use TomatoPHP\TomatoAdmin\Services\Contracts\Menu;
 use TomatoPHP\TomatoRoles\Services\Permission;
 use TomatoPHP\TomatoRoles\Services\TomatoRoles;
 
@@ -53,50 +54,55 @@ class TomatoBackupServiceProvider extends ServiceProvider
         //Register Routes
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
 
-        TomatoMenuRegister::registerMenu(BackupMenu::class);
-
         $this->registerPermissions();
     }
 
+    public function boot(): void
+    {
+        TomatoMenu::register([
+            Menu::make()
+                ->group(trans('tomato-backup::global.group'))
+                ->label(trans('tomato-backup::global.title'))
+                ->icon("bx bxs-backpack")
+                ->route("admin.backup.index"),
+        ]);
+    }
 
     /**
      * @return void
      */
     private function registerPermissions(): void
     {
-        TomatoRoles::register(Permission::make()
-            ->name('admin.backup.index')
-            ->guard('web')
-            ->group('backup')
-        );
+        if(class_exists(TomatoRoles::class)){
+            TomatoRoles::register(Permission::make()
+                ->name('admin.backup.index')
+                ->guard('web')
+                ->group('backup')
+            );
 
-        TomatoRoles::register(Permission::make()
-            ->name('admin.backup.create')
-            ->guard('web')
-            ->group('backup')
-        );
+            TomatoRoles::register(Permission::make()
+                ->name('admin.backup.create')
+                ->guard('web')
+                ->group('backup')
+            );
 
-        TomatoRoles::register(Permission::make()
-            ->name('admin.backup.store')
-            ->guard('web')
-            ->group('backup')
-        );
+            TomatoRoles::register(Permission::make()
+                ->name('admin.backup.store')
+                ->guard('web')
+                ->group('backup')
+            );
 
-        TomatoRoles::register(Permission::make()
-            ->name('admin.backup.download')
-            ->guard('web')
-            ->group('backup')
-        );
+            TomatoRoles::register(Permission::make()
+                ->name('admin.backup.download')
+                ->guard('web')
+                ->group('backup')
+            );
 
-        TomatoRoles::register(Permission::make()
-            ->name('admin.backup.destroy')
-            ->guard('web')
-            ->group('backup')
-        );
-    }
-
-    public function boot(): void
-    {
-        //you boot methods here
+            TomatoRoles::register(Permission::make()
+                ->name('admin.backup.destroy')
+                ->guard('web')
+                ->group('backup')
+            );
+        }
     }
 }

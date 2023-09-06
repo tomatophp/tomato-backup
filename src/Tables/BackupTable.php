@@ -69,12 +69,12 @@ class BackupTable extends AbstractTable
             )
             ->export()
             ->defaultSort('id')
-            ->column(key: "id",label: trans('tomato-backup::global.id'), sortable: true)
+            ->column(key: 'actions',label: trans('tomato-roles::global.roles.actions'))
+            ->column(key: "id",label: trans('tomato-backup::global.id'), sortable: true, hidden: true)
             ->column(key: "path",label: trans('tomato-backup::global.path'), sortable: true)
             ->column(key: 'disk', label: trans('tomato-backup::global.disk'), sortable: true)
             ->column(key: 'size', label: trans('tomato-backup::global.size'), sortable: true)
             ->column(key: 'date', label: trans('tomato-backup::global.date'), sortable: true)
-            ->column(key: 'actions',label: trans('tomato-roles::global.roles.actions'))
             ->paginate(15);
     }
 }
