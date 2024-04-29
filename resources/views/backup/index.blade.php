@@ -7,6 +7,9 @@
             {{trans('tomato-admin::global.crud.create-new')}} {{trans('tomato-backup::global.title')}}
         </x-tomato-admin-button>
     </x-slot:buttons>
+    <x-slot:icon>
+        bx bxs-backpack
+    </x-slot:icon>
 
 
     <div class="pb-12" v-cloak>
@@ -15,7 +18,9 @@
                 <x-splade-cell actions>
                     <div class="flex justify-start">
                         <a href="/admin/backup/{{ $item->id }}" title="{{trans('tomato-backup::global.download')}}"  class="px-2 text-primary-500" target="_blank">
-                            <x-heroicon-s-document-arrow-down class="h-6 w-6"/>
+                            <x-tomato-admin-tooltip text="{{trans('tomato-backup::global.download')}}">
+                                <x-heroicon-s-document-arrow-down class="h-6 w-6"/>
+                            </x-tomato-admin-tooltip>
                         </a>
                         <x-tomato-admin-button
                             type="icon"
@@ -27,7 +32,9 @@
                             class="px-2 text-red-500"
                             method="delete"
                         >
-                            <x-heroicon-s-trash class="h-6 w-6"/>
+                            <x-tomato-admin-tooltip text="{{trans('tomato-admin::global.crud.delete')}}">
+                                <x-heroicon-s-trash class="h-6 w-6"/>
+                            </x-tomato-admin-tooltip>
                         </x-tomato-admin-button>
                     </div>
                 </x-splade-cell>
